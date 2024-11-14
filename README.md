@@ -1,98 +1,36 @@
-Here’s a README file tailored for your website repository:
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
----
+## Getting Started
 
-# Believers Tech Expo (BTE) Website 🌐
+First, run the development server:
 
-Welcome to the **Believers Tech Expo (BTE)** website repository! This repository hosts the source code and resources for the official BTE website—a central hub where Christian tech enthusiasts can connect, grow, and explore opportunities to integrate faith and technology.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
----
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## About BTE ✨
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-**Believers Tech Expo (BTE)** is a community dedicated to empowering Christian tech enthusiasts by providing resources, events, training, and a supportive network for professional and spiritual growth. Our website serves as the primary platform for:
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-- Connecting with fellow Christian tech professionals
-- Accessing resources and community updates
-- Registering for events, workshops, and training programs
-- Finding opportunities for skill development, volunteering, and job placements
+## Learn More
 
----
+To learn more about Next.js, take a look at the following resources:
 
-## Project Structure 🗂️
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-- **Home**: Introduction to BTE, mission, and vision
-- **About Us**: Background, objectives, and key initiatives
-- **Events**: Upcoming and past events, workshops, and conferences
-- **Programs**: Information on sequential training programs and tech tracks
-- **Community**: Links to join the community and connect with other members
-- **Job Board**: Curated job opportunities from partner organizations
-- **Contact**: Contact form and links to our social media channels
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
----
+## Deploy on Vercel
 
-## Getting Started 🚀
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-To set up the website locally for development and testing, follow these steps:
-
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/YourUsername/believers-tech-expo-website.git
-   cd believers-tech-expo-website
-   ```
-
-2. **Install Dependencies**:
-   Make sure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed. Then, install project dependencies:
-   ```bash
-   npm install
-   ```
-
-3. **Start the Development Server**:
-   ```bash
-   npm run dev
-   ```
-   The website should now be running locally at `http://localhost:3000`.
-
----
-
-## Contributing 🤝
-
-We welcome contributions! To contribute to this project:
-
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix:
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-3. Make your changes and commit them.
-4. Push your branch:
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-5. Open a pull request to the main branch of the repository.
-
----
-
-## Issues and Feedback 📢
-
-If you encounter any issues or have suggestions for the website, please open an [issue](https://github.com/YourUsername/believers-tech-expo-website/issues) on GitHub. Your feedback helps us improve and build a website that truly supports our community.
-
----
-
-## License 📜
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-## Connect with Us 🌐
-
-- **Instagram**: [BTE Instagram](https://www.instagram.com/believerstechexpo/)
-- **Twitter**: [BTE Twitter](https://twitter.com/btechexpo)
-- **LinkedIn**: [BTE LinkedIn](https://www.linkedin.com/company/believers-technology-expo/)
-
-For general inquiries or questions about the project, reach out to us at [believerstechexpo@gmail.com](mailto:believerstechexpo@gmail.com).
-
---- 
-
-Thank you for being part of the BTE community! Let’s build a platform that reflects our values, inspires others, and empowers tech enthusiasts to make an impact.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
