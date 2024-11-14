@@ -10,13 +10,13 @@ import Layout from './layout';
 
 const Page: React.FC = () => {
   return (
-    <Layout>
+    <div className="max-h-full">
       <HeroSection />
       <MainSection />
       <AboutUs />
       <ContactUs />
       <TellAFriend />
-    </Layout>
+    </div>
   );
 };
 
