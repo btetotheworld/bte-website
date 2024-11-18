@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --color-bg: #0a192f; /* Dark navy background */
+  --color-bg: #ffffff; /* Dark navy background */
   --color-text: #e6f1ff; /* Light blue text */
   --color-primary: #0077ff; /* Bright blue */
   --color-secondary: #4cafee; /* Sky blue */
@@ -15,6 +15,7 @@
   --gradient-primary: linear-gradient(135deg, #0077ff, #00d4ff);
   --gradient-secondary: linear-gradient(135deg, #0a192f, #4cafee);
 }
+
 
 body {
   background-color: var(--color-bg);
@@ -153,4 +154,27 @@ textarea:focus {
 .icon:hover {
   transform: scale(1.1);
   color: var(--color-highlight);
+}
+
+.text-blue {
+  color: var(--color-primary); /* Using the primary blue from your root variables */
+}
+
+/* Hero Section Styles */
+.hero-section-blue {
+  background-color: var(--color-primary); /* Bright blue background */
+  background-image: var(--gradient-primary); /* Gradient background for extra flair */
+  color: var(--color-text); /* Ensure the text color contrasts well */
+}
+
+.hero-section-blue .hero-overlay {
+  background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent black overlay */
+}
+
+.hero-section-blue a {
+  color: var(--color-text); /* Link text should contrast with the blue */
+}
+
+.hero-section-blue a:hover {
+  color: var(--color-highlight); /* Hover effect for links */
 }
