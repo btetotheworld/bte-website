@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import Image from "next/image"; // Importing Image from Next.js
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"; // Importing icons from Heroicons
+import Image from "next/image"; 
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
