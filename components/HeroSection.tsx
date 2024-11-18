@@ -6,7 +6,7 @@ import { faker } from "@faker-js/faker";
 export default function HeroSection() {
   const LoremShort = faker.lorem.paragraph(2);
   return (
-    <div className="hero-section bg-cover bg-center text-white flex flex-col justify-center items-center h-[80vh] md:h-[80] relative">
+    <div className="hero-section bg-cover bg-center text-white flex flex-col justify-center items-center h-[100vh] md:h-[80] relative">
       <div className="absolute inset-0 bg-black opacity-30"></div>{" "}
       {/* Overlay for text contrast */}
       <div className="z-10 px-4 max-w-4xl text-center">
