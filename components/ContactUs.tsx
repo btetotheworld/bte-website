@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import './contact.css';
-
+import { FaUser, FaEnvelope, FaPhone } from 'react-icons/fa';
+import { FaLocationDot } from "react-icons/fa6";
 // Define types for form data and errors
 interface FormData {
   email: string;
@@ -96,10 +97,31 @@ const ContactUs: React.FC = () => {
     <section className="h-screen bg-white p-8">
       <div className="  flex h-[100%] flex-col md:flex-row">
         {/* Contact Info Section */}
-        <div
-          className="contact text-white p-6 w-full md:w-[40%] flex-shrink-0 bg-cover bg-center"
-        >
-         
+        <div className="contact text-white p-6 w-full md:w-[40%] flex flex-col justify-center">
+          <div className="info flex flex-col mx-auto  justify-center space-y-6">
+            <div className="flex items-center w-full">
+              <FaLocationDot
+                 className="text-3xl text-white mr-4" />
+              <div>
+                <h3 className="text-xl font-semibold">Our Location</h3>
+                <p>Nigeria</p>
+              </div>
+            </div>
+            <div className="flex items-center">
+              <FaEnvelope className="text-3xl text-white mr-4" />
+              <div>
+                <h3 className="text-xl font-semibold">Email Address</h3>
+                <p>example@gmail.com</p>
+              </div>
+            </div>
+            <div className="flex items-center">
+              <FaPhone className="text-3xl text-white mr-4" />
+              <div>
+                <h3 className="text-xl font-semibold">Call Us Free</h3>
+                <p>+234 812 345 6789</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Form Section */}
@@ -108,8 +130,8 @@ const ContactUs: React.FC = () => {
           className="w-full md:w-[60%] p-6 bg-white rounded-lg shadow-md"
         >
 
-          <h2 className="text-2xl text-color-primary  font-bold mb-4">Contact Us</h2>
-          <p className="mb-4 text-black">
+          <h2 className="text-2xl text-color-primary  font-bold mb-4">Get In Touch</h2>
+          <p className="mb-4 text-black text-2xl">
             For any inquiries or assistance, reach out to us. We’re here to help!
           </p>
           <div className="grid grid-cols-1 gap-4">
@@ -126,9 +148,8 @@ const ContactUs: React.FC = () => {
                 onChange={handleChange}
                 placeholder="johnDoe@gmail.com"
                 required
-                className={`outline-none border-b-2 p-2 rounded-md ${
-                  errors.email ? "border-red-500" : "border-gray-300"
-                } focus:border-blue-500`}
+                className={`outline-none border-b-2 p-2 rounded-md ${errors.email ? "border-red-500" : "border-gray-300"
+                  } focus:border-blue-500`}
               />
               {errors.email && (
                 <span className="text-red-500 text-sm">{errors.email}</span>
@@ -147,9 +168,8 @@ const ContactUs: React.FC = () => {
                 onChange={handleChange}
                 placeholder="Write your message here"
                 required
-                className={`outline-none border-b-2 p-2 rounded-md h-24 ${
-                  errors.message ? "border-red-500" : "border-gray-300"
-                } focus:border-blue-500`}
+                className={`outline-none border-b-2 p-2 rounded-md h-24 ${errors.message ? "border-red-500" : "border-gray-300"
+                  } focus:border-blue-500`}
               />
               {errors.message && (
                 <span className="text-red-500 text-sm">{errors.message}</span>
