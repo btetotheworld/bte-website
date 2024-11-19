@@ -93,16 +93,13 @@ const ContactUs: React.FC = () => {
   };
 
   return (
-    <section className="bg-gray-100 p-8">
-      <div className="max-w-5xl mx-auto flex flex-col md:flex-row">
+    <section className="h-screen bg-white p-8">
+      <div className="  flex h-[100%] flex-col md:flex-row">
         {/* Contact Info Section */}
         <div
           className="contact text-white p-6 w-full md:w-[40%] flex-shrink-0 bg-cover bg-center"
         >
-          <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
-          <p className="mb-4">
-            For any inquiries or assistance, reach out to us. We’re here to help!
-          </p>
+         
         </div>
 
         {/* Form Section */}
@@ -110,10 +107,15 @@ const ContactUs: React.FC = () => {
           onSubmit={handleSubmit}
           className="w-full md:w-[60%] p-6 bg-white rounded-lg shadow-md"
         >
+
+          <h2 className="text-2xl text-color-primary  font-bold mb-4">Contact Us</h2>
+          <p className="mb-4 text-black">
+            For any inquiries or assistance, reach out to us. We’re here to help!
+          </p>
           <div className="grid grid-cols-1 gap-4">
             {/* Email Input */}
             <div className="flex flex-col">
-              <label htmlFor="email" className="text-start">
+              <label htmlFor="email" className="text-black text-start">
                 Email Address
               </label>
               <input
@@ -135,7 +137,7 @@ const ContactUs: React.FC = () => {
 
             {/* Message Input */}
             <div className="flex flex-col">
-              <label htmlFor="message" className="text-start">
+              <label htmlFor="message" className="text-black text-start">
                 Message
               </label>
               <textarea
