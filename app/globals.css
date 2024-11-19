@@ -1,3 +1,180 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --color-bg: #ffffff; /* Dark navy background */
+  --color-text: #e6f1ff; /* Light blue text */
+  --color-primary: #0077ff; /* Bright blue */
+  --color-secondary: #4cafee; /* Sky blue */
+  --color-accent: #ff6f61; /* Coral accent for contrast */
+  --color-highlight: #00d4ff; /* Cyan highlight */
+  --color-muted: #8892b0; /* Muted gray-blue for subtle text */
+
+  /* Gradient backgrounds for extra flair */
+  --gradient-primary: linear-gradient(135deg, #0077ff, #00d4ff);
+  --gradient-secondary: linear-gradient(135deg, #0a192f, #4cafee);
+}
+
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Background Colors */
+.bg-color-bg {
+  background-color: var(--color-bg);
+}
+
+.bg-color-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-color-secondary {
+  background-color: var(--color-secondary);
+}
+
+.bg-gradient-primary {
+  background: var(--gradient-primary);
+}
+
+.bg-gradient-secondary {
+  background: var(--gradient-secondary);
+}
+
+/* Text Colors */
+.text-color-text {
+  color: var(--color-text);
+}
+
+.text-color-primary {
+  color: var(--color-primary);
+}
+
+.text-color-secondary {
+  color: var(--color-secondary);
+}
+
+.text-color-accent {
+  color: var(--color-accent);
+}
+
+.text-color-muted {
+  color: var(--color-muted);
+}
+
+/* Accent and Borders */
+.border-color-accent {
+  border-color: var(--color-accent);
+}
+
+.shadow-md {
+  box-shadow: 0px 4px 12px rgba(0, 119, 255, 0.3); /* Blue glow */
+}
+
+/* Interactive Elements */
+button {
+  background: var(--gradient-primary);
+  color: var(--color-text);
+  font-weight: bold;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 6px 16px rgba(0, 119, 255, 0.5);
+}
+
+/* Links */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--color-highlight);
+}
+
+/* Cards */
+.card {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-muted);
+  border-radius: 1rem;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
+  color: var(--color-text);
+}
+
+.card:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0px 8px 24px rgba(0, 119, 255, 0.3);
+}
+
+/* Inputs */
+input,
+textarea {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-muted);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  font-size: 1rem;
+  width: 100%;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-highlight);
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+}
+
+/* Additional Tweaks for Beauty */
+.hr-accent {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, var(--color-accent), transparent);
+}
+
+.icon {
+  color: var(--color-primary);
+  transition: transform 0.3s, color 0.3s;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+  color: var(--color-highlight);
+}
+
+.text-blue {
+  color: var(--color-primary); /* Using the primary blue from your root variables */
+}
+
+/* Hero Section Styles */
+.hero-section-blue {
+  background-color: var(--color-primary); /* Bright blue background */
+  background-image: var(--gradient-primary); /* Gradient background for extra flair */
+  color: var(--color-text); /* Ensure the text color contrasts well */
+}
+
+.hero-section-blue .hero-overlay {
+  background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent black overlay */
+}
+
+.hero-section-blue a {
+  color: var(--color-text); /* Link text should contrast with the blue */
+}
+
+.hero-section-blue a:hover {
+  color: var(--color-highlight); /* Hover effect for links */
+}
