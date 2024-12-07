@@ -9,9 +9,7 @@ export default function Footer() {
         {/* Logo and Description */}
         <div className="mb-4 md:mb-0 text-center md:text-left">
           <h2 className="text-color-primary font-bold text-2xl">BTE</h2>
-          <p className="mt-2 text-sm">
-          {LoremShort}
-          </p>
+          <p className="mt-2 text-sm">{LoremShort}</p>
         </div>
 
         {/* Navigation Links */}
@@ -23,11 +21,11 @@ export default function Footer() {
             <Link href="/about" className="hover:text-color-primary">
               About Us
             </Link>
-            <Link href="/gallery" className="hover:text-color-primary">
-              Gallery
+            <Link href="/about" className="hover:text-color-primary">
+              about
             </Link>
-            <Link href="/events" className="hover:text-color-primary">
-              Events
+            <Link href="/contact" className="hover:text-color-primary">
+              contact
             </Link>
             <Link href="/contact" className="hover:text-color-primary">
               Contact

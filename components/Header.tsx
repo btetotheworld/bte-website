@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import Image from "next/image"; 
+import Image from "next/image";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 export default function Header() {
@@ -61,30 +61,28 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-6 text-color-text">
-          {["home", "featured", "gallery", "events", "about", "contact"].map(
-            (section) => (
-              <a
-                key={section}
-                href={`#${section}`}
-                className={`hover:text-color-primary relative ${
-                  activeSection === section ? "text-color-primary" : ""
-                }`}
-                onClick={handleLinkClick}
-              >
-                {section.charAt(0).toUpperCase() + section.slice(1)}
-                {/* Active underline */}
-                {activeSection === section && (
-                  <span className="absolute left-0 right-0 -bottom-1 h-[2px] bg-color-primary"></span>
-                )}
-              </a>
-            )
-          )}
+          {["home", "main", "about", "contact", "refer"].map((section) => (
+            <Link
+              key={section}
+              href={`#${section}`}
+              className={`hover:text-color-primary relative ${
+                activeSection === section ? "text-color-primary" : ""
+              }`}
+              onClick={handleLinkClick}
+            >
+              {section.charAt(0).toUpperCase() + section.slice(1)}
+              {/* Active underline */}
+              {activeSection === section && (
+                <span className="absolute left-0 right-0 -bottom-1 h-[2px] bg-color-primary"></span>
+              )}
+            </Link>
+          ))}
         </nav>
 
         {/* Action Button */}
         <div className="hidden md:block">
           <Link
-            href="#visit"
+            href="#contact"
             className="bg-color-primary text-white py-2 px-4 rounded-lg hover:bg-opacity-90 transition-all"
             onClick={handleLinkClick}
           >
@@ -108,27 +106,25 @@ export default function Header() {
       {/* Mobile Navigation Menu */}
       {menuOpen && (
         <div className="md:hidden bg-color-bg text-color-text space-y-4 py-4">
-          {["home", "Featured", "gallery", "event", "about", "contact"].map(
-            (section) => (
-              <a
-                key={section}
-                href={`#${section}`}
-                className={`block text-center hover:text-color-primary ${
-                  activeSection === section ? "text-color-primary" : ""
-                }`}
-                onClick={handleLinkClick}
-              >
-                {section.charAt(0).toUpperCase() + section.slice(1)}
-              </a>
-            )
-          )}
-          <a
+          {["home", "main", "about", "contact", "refer"].map((section) => (
+            <Link
+              key={section}
+              href={`/#${section}`}
+              className={`block text-center hover:text-color-primary ${
+                activeSection === section ? "text-color-primary" : ""
+              }`}
+              onClick={handleLinkClick}
+            >
+              {section.charAt(0).toUpperCase() + section.slice(1)}
+            </Link>
+          ))}
+          <Link
             href="#visit"
-                    className="block text-center bg-color-primary text-white py-2 px-4 rounded-lg hover:bg-opacity-90 mx-6 mt-2"
+            className="block text-center bg-color-primary text-white py-2 px-4 rounded-lg hover:bg-opacity-90 mx-6 mt-2"
             onClick={handleLinkClick}
           >
-            Contact Us
-          </a>
+            Tell a Friend
+          </Link>
         </div>
       )}
     </header>
