@@ -82,7 +82,7 @@ export default function Header() {
         {/* Action Button */}
         <div className="hidden md:block">
           <Link
-            href="#visit"
+            href="#contact"
             className="bg-color-primary text-white py-2 px-4 rounded-lg hover:bg-opacity-90 transition-all"
             onClick={handleLinkClick}
           >
@@ -109,7 +109,7 @@ export default function Header() {
           {["home", "main", "about", "contact", "refer"].map((section) => (
             <Link
               key={section}
-              href={`#${section}`}
+              href={`/#${section}`}
               className={`block text-center hover:text-color-primary ${
                 activeSection === section ? "text-color-primary" : ""
               }`}

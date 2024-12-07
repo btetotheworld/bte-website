@@ -5,7 +5,7 @@ import HeroSection from "@/components/HeroSection";
 import MainSection from "@/components/MainSection";
 import AboutUs from "@/components/AboutUs";
 import ContactUs from "@/components/ContactUs";
-import TellAFriend from "@/components/TellAFriend";
+//import TellAFriend from "@/components/TellAFriend";
 
 const Page: React.FC = () => {
   return (
@@ -26,10 +26,10 @@ const Page: React.FC = () => {
         {" "}
         <ContactUs />
       </section>
-      <section id="refer">
+      {/* <section id="refer">
         {" "}
         <TellAFriend />
-      </section>
+      </section> */}
     </div>
   );
 };
