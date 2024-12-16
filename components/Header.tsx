@@ -50,14 +50,14 @@ export default function Header() {
             <Image
               src={logo} // Path to your image in the public folder
               alt="BTE Logo"
-              width={40} // Adjust the width as needed
-              height={40} // Adjust the height as needed
+              width={60} // Adjust the width as needed
+              height={60} // Adjust the height as needed
               className="mr-2"
             />
           </Link>
-          <div className="text-color-primary font-bold text-xl">
+          {/* <div className="text-color-primary font-bold text-xl">
             <Link href="/">BTE</Link>
-          </div>
+          </div> */}
         </div>
 
         {/* Desktop Navigation */}
