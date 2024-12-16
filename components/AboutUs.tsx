@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 
@@ -52,12 +51,8 @@ const Aboutus = () => {
               }}
               className="relative flex items-end h-[300px]  inset-0 group-hover:opacity-70 transition-opacity duration-500 rounded-xl shadow-xl overflow-hidden group"
             >
-              <div
-                className="absolute top-0 left-0 w-full bg-black h-full  bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-              />
-              <div
-                className="absolute top-full left-0 w-full p-4  text-white bg-navyblue bg-opacity-80 transform group-hover:translate-y-[-100%] transition-transform duration-500"
-              >
+              <div className="absolute top-0 left-0 w-full bg-black h-full  bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute top-full left-0 w-full p-4  text-white bg-navyblue bg-opacity-80 transform group-hover:translate-y-[-100%] transition-transform duration-500">
                 <h4 className="text-2xl font-semibold mb-3">{item.heading}</h4>
                 <p className="text-base mb-4">{item.paragraph}</p>
                 <Link
