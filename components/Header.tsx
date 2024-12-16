@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import logo from '../assets/bte.png'
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 export default function Header() {
@@ -47,7 +48,7 @@ export default function Header() {
         <div className="flex items-center">
           <Link href="/">
             <Image
-              src="/Logo.png" // Path to your image in the public folder
+              src={logo} // Path to your image in the public folder
               alt="BTE Logo"
               width={40} // Adjust the width as needed
               height={40} // Adjust the height as needed
