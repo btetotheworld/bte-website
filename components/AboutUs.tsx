@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 
@@ -36,44 +35,34 @@ const Aboutdata: datatype[] = [
 const Aboutus = () => {
   return (
     <section id="about">
-      <div className="mx-auto mt-8 max-w-7xl px-4 py-12 lg:px-10 bg-lightgrey rounded-3xl relative">
-        <Image
-          src="/images/aboutus/dots.svg"
-          width={100}
-          height={100}
-          alt="dots-image"
-          className="absolute bottom-1 -left-20"
-        />
-
-        <h4 className="text-center text-4xl text-blue font-bold">
+      <div className="text-white mx-auto mt-8 max-w-4xl px-4 py-12 lg:px-10 bg-lightgrey rounded-3xl relative">
+        <h4 className="text-center text-4xl text-black font-bold">About Us</h4>
+        <h4 className="text-center text-xl text-blue font-bold">
           Know more about us.
         </h4>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-16 lg:gap-x-32">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
           {Aboutdata.map((item, i) => (
             <div
               key={i}
-              className="hover:bg-navyblue bg-white rounded-3xl mt-4 pt-10 pl-8 pb-10 pr-6 shadow-xl group"
+              style={{
+                backgroundImage: `url(${item.imgSrc})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+              className="relative flex items-end h-[300px]  inset-0 group-hover:opacity-70 transition-opacity duration-500 rounded-xl shadow-xl overflow-hidden group"
             >
-              <h4 className="text-4xl font-semibold  text-black mb-5 group-hover:text-gray-700">
-                {item.heading}
-              </h4>
-              <Image
-                src={item.imgSrc}
-                alt={item.imgSrc}
-                width={450}
-                height={400}
-                className="w-[300px] h-auto mb-5 rounded-lg"
-              />
-              <h4 className="text-lg font-normal text-black group-hover:text-offwhite mb-5">
-                {item.paragraph}
-              </h4>
-              <Link
-                href="#"
-                className="text-lg font-semibold group-hover:text-blue-600 text-blue hover-underline"
-              >
-                {item.link}
-                <ChevronRightIcon width={20} height={20} />
-              </Link>
+              <div className="absolute top-0 left-0 w-full bg-black h-full  bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute top-full left-0 w-full p-4  text-white bg-navyblue bg-opacity-80 transform group-hover:translate-y-[-100%] transition-transform duration-500">
+                <h4 className="text-2xl font-semibold mb-3">{item.heading}</h4>
+                <p className="text-base mb-4">{item.paragraph}</p>
+                <Link
+                  href="#"
+                  className="flex items-center text-lg font-semibold hover:underline"
+                >
+                  {item.link}
+                  <ChevronRightIcon width={20} height={20} className="ml-2" />
+                </Link>
+              </div>
             </div>
           ))}
         </div>
