@@ -54,7 +54,7 @@ export default function Footer() {
         {/* Navigation Links */}
 
         {/* Social Media Links */}
-        <div className="social-links flex flex-col  gap-4">
+        <div className="social-links flex justify-center items-center flex-col  gap-4">
           <div className="flex space-x-4 justify-end text-color-primary">
             <Link
               href="https://www.facebook.com"
@@ -102,7 +102,7 @@ export default function Footer() {
               </svg>
             </Link>
           </div>
-          <ul className="lg:text-right ">
+          <ul className="lg:text-right text-center ">
             <li className="">hello@btexpo.com</li>
             <li>Lagos, Nigeria</li>
             <li>+234890812847</li>

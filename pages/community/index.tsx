@@ -25,7 +25,7 @@ const Index: React.FC = () => {
                 <Header />
 
                 <div className=" text-black min-h-screen mt-8 flex justify-center">
-                    <div className="w-[95%] md:w-[90%] py-[80px] flex flex-col gap-6">
+                    <div className="w-[95%] md:w-[90%] py-[80px] flex flex-col  gap-6">
                         <div className="flex">
                             <p className="px-[16px] py-[10px] rounded-full border-[#201E5A] border ">
                                 One Faith, One Love, One Hope
@@ -60,7 +60,7 @@ const Index: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="w-full flex flex-col gap-6 relative z-[100] text-white md:w-[100%] p-[80px] bg-[#020343] ">
+                <div className="w-full flex flex-col gap-6 relative z-[100] text-white md:w-[100%] p-4 lg:p-[80px] bg-[#020343] ">
                     <div className="flex">
                         <p className="px-[16px] py-[10px] rounded-full border-[#201E5A] border ">
                             One Faith, One Love, One Hope
@@ -70,7 +70,7 @@ const Index: React.FC = () => {
                     <p className=" font-extrabold font-sans text-[3.1rem] md:text-[3.5rem] leading-[1.1em] ">
                         Where are we heading to?
                     </p>
-                    <div className="statement flex gap-4 mt-8">
+                    <div className="statement flex-col lg:flex gap-4 mt-8">
                         <div className="vision flex-1">
                             <h1 className="font-extrabold text-[2.5rem]">Our Vision</h1>
 
