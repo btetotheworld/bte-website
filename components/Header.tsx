@@ -1,63 +1,32 @@
 "use client";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import logo from "../assets/bte.png";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
   const router = useRouter();
+  const pathname = usePathname();
 
-  useEffect(() => {
-    const sections = document.querySelectorAll("section");
-    const observerOptions = {
-      root: null,
-      rootMargin: "-50px 0px -50px 0px",
-      threshold: 0.4,
-    };
+  // Route mapping for cleaner navigation logic
+  const routes: Record<string, string> = {
+    home: "/",
+    volunteer: "/volunteer",
+    events: "/events",
+    about: "/community",
+  };
 
-    const observer = new IntersectionObserver((entries) => {
-      let foundActive = false;
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-          foundActive = true;
-        }
-      });
-
-      if (!foundActive) {
-        setActiveSection("home");
-      }
-    }, observerOptions);
-
-    sections.forEach((section) => observer.observe(section));
-
-    return () => sections.forEach((section) => observer.unobserve(section));
-  }, []);
-
-  const handleLinkClick = (id: string) => {
+  // Handle navigation
+  const handleLinkClick = (id: keyof typeof routes) => {
     setMenuOpen(false);
-    setActiveSection(id);
-   
-
-    if (id === "volunteer") {
-      console.log("Pushing to /volunteer");
-      router.push("/volunteer")
-    } else if (id === "events") {
-      router.push("/events")
-    } else if (id === "home") {
-      router.push("/")
-    }
-     else {
+    if (routes[id]) {
+      router.push(routes[id]);
+    } else {
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
-
-
     }
-      
-    
   };
 
   return (
@@ -65,45 +34,51 @@ export default function Header() {
       <div className="max-w-full mx-auto px-6 md:px-14 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <Image src={logo} alt="BTE Logo" width={80} height={80} className="mr-2 grayscale" />
+          <Image src={logo} alt="BTE Logo" width={80} height={80} priority className="mr-2 grayscale" />
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-10">
-          {["events", "about", "volunteer", "subscribe", "featured"].map((section) => (
-            <Link
+          {["events", "about", "volunteer"].map((section) => (
+            <div
               key={section}
-              href={`#${section}`}
-              className={`hover:text-gray-800 px-6 font-semibold relative ${
-                activeSection === section ? "text-gray-900" : "text-gray-600"
+              className={`hover:text-gray-800 cursor-pointer px-6 font-semibold relative ${
+                pathname === routes[section] ? "text-gray-900" : "text-gray-600"
               }`}
-              onClick={() => handleLinkClick(section)}
+              onClick={() => handleLinkClick(section as keyof typeof routes)}
             >
               {section.charAt(0).toUpperCase() + section.slice(1)}
-              {activeSection === section && (
+              {pathname === routes[section] && (
                 <div>
                   <span className="absolute left-0 right-0 -bottom-1 h-[2px] bg-gray-900"></span>
-                  <span className="absolute right-0 top-2  h-[0.6rem] w-[0.6rem] rounded-full  bg-text-default"></span>
+                  <span className="absolute right-0 top-2 h-[0.6rem] w-[0.6rem] rounded-full bg-text-default"></span>
                 </div>
-                  
               )}
-            </Link>
+            </div>
           ))}
         </nav>
 
-        {/* Contact Button */}
-        <Link
-          href={"/contact-us"}
-          // onClick={() => handleLinkClick("contact")}
-          className="hidden md:block bg-white text-gray-900 py-2 px-4 rounded-b-[24px] rounded-tr-[24px] border-gray-900 border-2 font-semibold hover:bg-gray-900 hover:text-white transition-all duration-200 ease-out"
-        >
-          Contact Us
-        </Link>
+        {/* Buttons */}
+        <div className="flex space-x-4">
+          <Link
+            href="/contact-us"
+            className="hidden md:block bg-white text-gray-900 py-2 px-4 rounded-b-[24px] rounded-tr-[24px] border-gray-900 border-2 font-semibold hover:bg-gray-900 hover:text-white transition-all duration-200 ease-out"
+          >
+            Contact Us
+          </Link>
+          <Link
+            href="/"
+            className="hidden md:block bg-[#f7f2d4] text-gray-900 py-2 px-4 rounded-b-[24px] rounded-tr-[24px] font-semibold hover:bg-gray-900 hover:text-white transition-all duration-200 ease-out"
+          >
+            Become a Sponsor
+          </Link>
+        </div>
 
         {/* Mobile Menu Toggle */}
         <button
           className="md:hidden text-gray-900 border-gray-900 border-2 px-2 rounded-b-[24px] rounded-tr-[24px] transition-all duration-300 ease-in-out"
           onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle navigation menu"
         >
           {menuOpen ? <XMarkIcon className="w-8 h-8" /> : <Bars3Icon className="w-8 h-8" />}
         </button>
@@ -112,21 +87,19 @@ export default function Header() {
       {/* Mobile Navigation Menu */}
       {menuOpen && (
         <div className="md:hidden bg-white space-y-4 py-4 min-h-screen shadow-lg">
-          {["events", "about", "volunteer", "subscribe", "featured"].map((section) => (
-            <Link
-            key={section}
-            href={`#${section}`}
-              onClick={() => handleLinkClick(section)}
+          {["events", "about", "volunteer"].map((section) => (
+            <div
+              key={section}
+              onClick={() => handleLinkClick(section as keyof typeof routes)}
               className={`block w-full text-center py-3 font-semibold ${
-                activeSection === section ? "text-gray-900" : "text-gray-600"
+                pathname === routes[section] ? "text-gray-900" : "text-gray-600"
               }`}
             >
               {section.charAt(0).toUpperCase() + section.slice(1)}
-            </Link>
+            </div>
           ))}
           <Link
-          href={"/contact-us"}
-            
+            href="/contact-us"
             className="block w-full text-center rounded-b-[24px] rounded-tr-[24px] bg-gray-900 text-white py-3 px-4 hover:bg-opacity-90 mx-6 mt-2"
           >
             Join the BTE Family
