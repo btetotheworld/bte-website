@@ -4,25 +4,20 @@ import privacy from './content'
 import '@/app/globals.css';
 import Footer from '@/components/Footer';
 
-const index = () => {
-
-
-  const [onPrivacy, setOnPrivacy] = useState(privacy)
+const Index = () => {
+  const [onPrivacy, setOnPrivacy] = useState(privacy);
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
   const handleClick = (title: string) => {
-    // setOnPrivacy(p)
-    const filtered = onPrivacy.filter((item) => item.title === title)
-    setOnPrivacy(filtered)
+    const filtered = privacy.filter((item) => item.title === title);
+    setOnPrivacy(filtered);
     setActiveSection(title);
-    // console.log(filtered)
-    document.getElementById(title)?.scrollIntoView({ behavior: "smooth" })
+    document.getElementById(title)?.scrollIntoView({ behavior: "smooth" });
+  };
 
-  }
   return (
     <div className="w-full">
       <section id="section-article">
-
         <Header />
 
         <div className="w-[95%] md:w-[90%] flex flex-col gap-4 p-6 md:p-10 lg:p-14 py-[7rem] mx-auto">
@@ -37,12 +32,11 @@ const index = () => {
         </div>
 
         <div className='section-privacy p-6 md:p-10 lg:p-14 bg-[#b1d5e8] flex flex-col md:flex-row gap-8 justify-between'>
-
           {/* Left column - Titles list */}
           <div className='w-full md:w-1/3'>
             <ul className="flex relative flex-col gap-4">
               {privacy.map((terms, index) => (
-                <li key={index} onClick={() => handleClick(terms.title)} className=" w-fit pr-8 relative font-bold text-lg md:text-xl">
+                <li key={`title-${index}`} onClick={() => handleClick(terms.title)} className="w-fit pr-8 relative font-bold text-lg md:text-xl">
                   {terms.title}
                   {terms.title === activeSection && (
                     <>
@@ -61,33 +55,31 @@ const index = () => {
               At Believers Tech Expo, we value your privacy and are committed to protecting the personal information you share with us. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, participate in our events, or interact with us in other ways.
             </header>
             <ol className="space-y-6">
-              {privacy
-                .map((terms, index) => (
-                  <section id={`${terms.title}`}>
-                    <li key={index} className="flex flex-col gap-4">
-                      <h1 className='font-extrabold text-black text-2xl md:text-4xl'>{terms.title}</h1>
-                      <p className="text-sm md:text-base">{terms.desc}</p>
-                      <ul className="list-disc ml-6 p-4 text-sm md:text-base">
-                        {terms.list && terms.list.map((item, idx) => (
-                          <li key={idx}>
-                            {item.title ? `${item.title}: ` : ''}{item.description}
-                          </li>
-                        ))}
-                      </ul>
-                    </li>
-                  </section>
-                ))}
+              {onPrivacy.map((terms, index) => (
+                <section id={terms.title} key={`section-${index}`}>
+                  <li className="flex flex-col gap-4">
+                    <h1 className='font-extrabold text-black text-2xl md:text-4xl'>{terms.title}</h1>
+                    <p className="text-sm md:text-base">{terms.desc}</p>
+                    <ul className="list-disc ml-6 p-4 text-sm md:text-base">
+                      {terms.list && terms.list.map((item, idx) => (
+                        <li key={`list-${index}-${idx}`}>
+                          {item.title ? `${item.title}: ` : ''}{item.description}
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                </section>
+              ))}
             </ol>
             <footer>
-              <p>
-                By using our services, you acknowledge that you have read and understood this Privacy Policy.</p>
+              <p>By using our services, you acknowledge that you have read and understood this Privacy Policy.</p>
             </footer>
           </div>
         </div>
         <Footer />
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default index
+export default Index;

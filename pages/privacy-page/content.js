@@ -1,5 +1,6 @@
  const privacy = [
     {
+        id:1,
         title: "Information We Collect",
         desc: "We collect various types of information in order to provide and improve our services to you. The types of information we collect include:",
         list: [
@@ -18,6 +19,7 @@
         ]
     },
     {
+        id:2,
         title: "How We Use Your Information",
         desc: "We use the collected information for various purposes, including",
         list: [
@@ -48,6 +50,7 @@
         ]
     },
     {
+        id:3,
         title: "Sharing Your Information",
         desc: "We do not sell, rent, or share your personal information with third parties, except as described below",
         list: [
@@ -64,6 +67,7 @@
     },
 
     {
+        id:4,
         title: "Your Rights and Choices",
         desc: "You have certain rights regarding your personal data. These include",
         list: [

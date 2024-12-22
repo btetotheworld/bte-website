@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import React, { useState } from "react";
+import React from "react";
 import "@/app/globals.css";
 import Subscribe from "@/components/Subscribe";
 import Footer from "@/components/Footer";
@@ -7,7 +7,7 @@ import { eventsData } from "@/components/Events/eventList";
 import Image from "next/image";
 import { useParams } from "next/dist/client/components/navigation";
 
-type IndexType = number
+
 
 
 const ArticleSection: React.FC = () => {
@@ -18,8 +18,7 @@ const ArticleSection: React.FC = () => {
    
        const event = eventsData.find(event => event.id === eventId)
 
-    const [currentIndex, setCurrentIndex]= useState<IndexType>(0)
-    console.log(setCurrentIndex)
+    
     return (
       <div className="">
         <section id="w-full  section-article">

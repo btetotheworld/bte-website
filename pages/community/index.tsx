@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import React, { useState } from "react";
+import React from "react";
 import "@/app/globals.css";
 import Subscribe from "@/components/Subscribe";
 import Footer from "@/components/Footer";
@@ -13,13 +13,12 @@ import bgImage from '../../assets/bg-image.svg'
 
 
 
-type IndexType = number
+
 
 
 const Index: React.FC = () => {
 
-    const [currentIndex, setCurrentIndex] = useState<IndexType>(0)
-    console.log(setCurrentIndex)
+   
     return (
         <div className="">
             <section id="w-full  section-article">
