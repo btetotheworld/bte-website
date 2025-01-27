@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AppWrapper from "@/components/App/App-Wrapper";
 
 const vastagoGrotesk = localFont({
   src: [
@@ -83,7 +84,8 @@ export default function RootLayout({
         className={`${vastagoGrotesk.variable} ${vastagoGrotesk.variable} antialiased`}
       >
         <Header />
-        {children}
+        <div className="mt-[7em]"></div>
+        <AppWrapper>{children}</AppWrapper>
         <Footer />
       </body>
     </html>

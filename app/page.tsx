@@ -14,7 +14,7 @@ const Page: React.FC = () => {
         <HeroSection />
       </section>
 
-      <section id="main">
+      {/* <section id="main">
         {" "}
         <MainSection />
       </section>
@@ -25,7 +25,7 @@ const Page: React.FC = () => {
       <section id="contact">
         {" "}
         <ContactUs />
-      </section>
+      </section> */}
       {/* <section id="refer">
         {" "}
         <TellAFriend />

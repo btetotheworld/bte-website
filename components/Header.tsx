@@ -42,7 +42,7 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white fixed top-0 w-full z-50">
+    <header className="bg-white fixed top-0 w-full z-50 font-sans">
       <div className="max-w-full min-h-[112px] mx-auto px-14 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
@@ -85,7 +85,7 @@ export default function Header() {
         <div className="hidden md:block ">
           <Link
             href="#contact"
-            className="bg-white text-text-default py-2 px-4 rounded-b-[24px] rounded-tr-[24px] border-[#55A4CE] border-2 font-[600] hover:bg-opacity-90 transition-all"
+            className="bg-white text-text-default py-2 px-4 rounded-b-[24px] rounded-tr-[24px] border-[#03045E] border-2 font-[600] hover:bg-[#03045E] transition-all duration-200 ease-out hover:p-4  hover:text-white"
             onClick={handleLinkClick}
           >
             Contact Us
@@ -129,7 +129,7 @@ export default function Header() {
           ))}
           <Link
             href="#visit"
-            className=" text-center rounded-b-[24px] rounded-tr-[24px] bg-[#03045E] text-white py-3 px-4 rounded-lg hover:bg-opacity-90 mx-6 mt-2 flex items-center justify-center gap-2  "
+            className=" text-center rounded-b-[24px] rounded-tr-[24px] bg-[#03045E] text-white py-3 px-4  hover:bg-opacity-90 mx-6 mt-2 flex items-center justify-center gap-2  "
             onClick={handleLinkClick}
           >
             <p>Join the BTE family </p>
