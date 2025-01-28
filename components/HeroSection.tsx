@@ -9,7 +9,7 @@ export default function HeroSection() {
       id="hero"
       className="bg-white flex items-center justify-center  min-h-screen"
     >
-      <div className="w-[95%] md:w-[92%] flex flex-col gap-4 md:gap-2">
+      <div className="w-[95%] md:w-[90%] flex flex-col gap-4 md:gap-2">
         <div className="flex ">
           <p className="px-[16px] py-[10px] rounded-full border-[#201E5A] border">
             Love 🩵 & Light💡

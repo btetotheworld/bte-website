@@ -5,6 +5,7 @@ import HeroSection from "@/components/HeroSection";
 import MainSection from "@/components/MainSection";
 import AboutUs from "@/components/AboutUs";
 import ContactUs from "@/components/ContactUs";
+import FeturedProgramme from "@/components/FeturedProgramme";
 //import TellAFriend from "@/components/TellAFriend";
 
 const Page: React.FC = () => {
@@ -13,6 +14,7 @@ const Page: React.FC = () => {
       <section id="home">
         <HeroSection />
       </section>
+      <FeturedProgramme />
 
       {/* <section id="main">
         {" "}
