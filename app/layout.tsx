@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AppWrapper from "@/components/App/App-Wrapper";
 
 const vastagoGrotesk = localFont({
   src: [
@@ -55,17 +56,6 @@ const vastagoGrotesk = localFont({
   variable: "--font-vastago-grotesk",
 });
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
-
 export const metadata: Metadata = {
   title: "Beliver's Tech Expo",
   description:
@@ -83,7 +73,8 @@ export default function RootLayout({
         className={`${vastagoGrotesk.variable} ${vastagoGrotesk.variable} antialiased`}
       >
         <Header />
-        {children}
+        <div className="mt-[7em]"></div>
+        <AppWrapper>{children}</AppWrapper>
         <Footer />
       </body>
     </html>
