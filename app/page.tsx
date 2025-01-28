@@ -2,9 +2,9 @@
 
 import React from "react";
 import HeroSection from "@/components/HeroSection";
-import MainSection from "@/components/MainSection";
-import AboutUs from "@/components/AboutUs";
-import ContactUs from "@/components/ContactUs";
+// import MainSection from "@/components/MainSection";
+// import AboutUs from "@/components/AboutUs";
+// import ContactUs from "@/components/ContactUs";
 import FeturedProgramme from "@/components/FeturedProgramme";
 //import TellAFriend from "@/components/TellAFriend";
 

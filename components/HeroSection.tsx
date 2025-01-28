@@ -1,9 +1,8 @@
 import React from "react";
 import Link from "next/link";
-import { faker } from "@faker-js/faker";
+// import { faker } from "@faker-js/faker";
 
 export default function HeroSection() {
-  const LoremShort = faker.lorem.paragraph(2);
   return (
     <section
       id="hero"
@@ -19,10 +18,10 @@ export default function HeroSection() {
           Where believers meet to connect over Tech
         </p>
         <p className="text-[#4D4D56] font-[400] text-[24px] max-w-[932px] text-justify md:text-left">
-          Whether you're a developer, designer, engineer, finding your way, or
-          just love technology, connect with like-minded believers, share ideas,
-          grow your skills, and inspire one another to use tech for a greater
-          purpose.
+          Whether you&apos;re a developer, designer, engineer, finding your way,
+          or just love technology, connect with like-minded believers, share
+          ideas, grow your skills, and inspire one another to use tech for a
+          greater purpose.
         </p>
 
         <div className="flex items-end justify-end  w-full md:justify-start">

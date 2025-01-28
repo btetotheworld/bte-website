@@ -36,9 +36,9 @@ const FeturedProgramme = () => {
 
           <div className="col-span-4 text-[#4D4D56] text-[24px]">
             Start the year strong with a purpose-driven vision for 2025! Join us
-            for an inspiring and interactive event where you'll learn practical
-            strategies to set meaningful goals, align them with your values, and
-            create an actionable plan for success. Whether personal,
+            for an inspiring and interactive event where you&apos;ll learn
+            practical strategies to set meaningful goals, align them with your
+            values, and create an actionable plan for success. Whether personal,
             professional, or spiritual, this session will empower you to step
             into 2025 with clarity, focus, and confidence.
           </div>
