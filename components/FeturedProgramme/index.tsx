@@ -22,37 +22,47 @@ const FeturedProgramme = () => {
           className="w-full mt-20"
         />
 
-        <div className="grid grid-cols-5 mt-10 items-center ">
-          <div>
+        <div className="grid  grid-cols-1 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5 mt-10 gap-4 transition-all duration-200 ease-in-out">
+          <div className="">
             <div>
-              <p className="text-[#17171F] text-[11px] font-bold ">Date:</p>
-              <p className="font-[#4D4D56] ">April 24th to June 1st, 2025</p>
+              <p className="text-[#17171F] text-[0.6rem] font-bold ">Date:</p>
+              <p className="font-[#4D4D56] text-[0.8rem]">April 24th to June 1st, 2025</p>
             </div>
             <div>
-              <p className="text-[#17171F] text-[11px] font-bold ">Time:</p>
-              <p className="font-[#4D4D56] ">10:30am - 5:00pm</p>
+              <p className="text-[#17171F] text-[0.6rem] font-bold ">Time:</p>
+              <p className="font-[#4D4D56] text-[0.8rem] ">10:30am - 5:00pm</p>
+
+              
             </div>
+
+           
           </div>
 
-          <div className="col-span-4 text-[#4D4D56] text-[24px]">
-            Start the year strong with a purpose-driven vision for 2025! Join us
+          <div className="col-span-4 text-[#4D4D56] lg:text-[1.5rem] text-[1rem]">
+           <p>
+           Start the year strong with a purpose-driven vision for 2025! Join us
             for an inspiring and interactive event where you&apos;ll learn
             practical strategies to set meaningful goals, align them with your
             values, and create an actionable plan for success. Whether personal,
             professional, or spiritual, this session will empower you to step
             into 2025 with clarity, focus, and confidence.
+           </p>
+
+           
+            
           </div>
+
         </div>
-        <div className="grid grid-cols-5 mt-8 items-center">
-          <div>
+        <div className="items-center grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5 mt-10 gap-4 transition-all duration-200 ease-in-out">
+          <div className="">
             <div className="flex items-end justify-end  w-full md:justify-start">
-              <button className="text-center rounded-b-[24px] rounded-tr-[24px] bg-[#03045E] text-white py-3 px-4 border-2 border-[#03045E] hover:bg-white hover:text-[#03045E] hover:font-bold mt-2 flex items-center justify-center gap-2 transition-colors duration-200 ease-out group w-full md:w-fit ">
+              <button className="text-center rounded-b-[24px] rounded-tr-[24px] bg-[#03045E] text-white py-2 px-3 border-2 border-[#03045E] hover:bg-white hover:text-[#03045E] hover:font-bold mt-2 flex items-center justify-center gap-2 transition-colors duration-200 ease-out group w-full md:w-fit ">
                 <span className="whitespace-nowrap">Attend the Event</span>
 
                 <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                   className="transition-colors duration-200 ease-out"
@@ -67,12 +77,12 @@ const FeturedProgramme = () => {
           </div>
 
           <div className="col-span-4">
-            <div className="flex items-center gap-4 ">
+            <div className="flex lg:flex-row flex-col  items-center gap-4 ">
               <p className="text-[#17171F] text-[11px] font-bold ">
                 Add to calendar:
               </p>
 
-              <div className="flex items-center gap-4 ">
+              <div className="flex flex-wrap  items-center gap-4 ">
                 <svg
                   width="111"
                   height="27"

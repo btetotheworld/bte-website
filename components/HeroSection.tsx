@@ -6,7 +6,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="bg-white flex items-center justify-center  min-h-screen"
+      className="bg-white flex items-center justify-center py-8 min-h-screen"
     >
       <div className="w-[95%] md:w-[90%] flex flex-col gap-4 md:gap-2">
         <div className="flex ">
@@ -14,10 +14,10 @@ export default function HeroSection() {
             Love 🩵 & Light💡
           </p>
         </div>
-        <p className="text-[#121218] font-extrabold font-sans text-[50px] md:text-[88px] leading-[1.1em] ">
+        <p className="text-[#121218] font-extrabold font-sans text-[3.1rem] md:text-[5.5rem] leading-[1.1em] ">
           Where believers meet to connect over Tech
         </p>
-        <p className="text-[#4D4D56] font-[400] text-[24px] max-w-[932px] text-justify md:text-left">
+        <p className="text-[#4D4D56] font-[400] text-[0.9rem] lg:text-[24px] max-w-[932px] text-justify md:text-left">
           Whether you&apos;re a developer, designer, engineer, finding your way,
           or just love technology, connect with like-minded believers, share
           ideas, grow your skills, and inspire one another to use tech for a
