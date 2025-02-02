@@ -3,7 +3,6 @@ import HeroSection from "@/components/HeroSection";
 import FeturedProgramme from "@/components/FeturedProgramme";
 import Events from "@/components/Events/Events";
 import Subscribe from "@/components/Subscribe";
-import Volunteer from "@/components/Volunteer";
 
 const Page: React.FC = () => {
   return (
