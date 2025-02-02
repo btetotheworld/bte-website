@@ -4,10 +4,7 @@ import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <section
-      id="hero"
-      className="bg-white flex items-center justify-center py-8 min-h-screen"
-    >
+    <div id="home" className="bg-white flex items-center justify-center ">
       <div className="w-[95%] md:w-[90%] flex flex-col gap-4 md:gap-2">
         <div className="flex ">
           <p className="px-[16px] py-[10px] rounded-full border-[#201E5A] border">
@@ -70,6 +67,6 @@ export default function HeroSection() {
           </Link>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

@@ -5,6 +5,15 @@ import Image from "next/image";
 import logo from "../assets/bte.png";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
+const NAV_LINKS = [
+  "home",
+  "events",
+  "featured",
+  "about",
+  "volunteer",
+  "subscribe",
+];
+
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
@@ -26,7 +35,9 @@ export default function Header() {
     }, options);
 
     sections.forEach((section) => {
-      observer.observe(section);
+      if (NAV_LINKS.includes(section.id)) {
+        observer.observe(section);
+      }
     });
 
     return () => {
@@ -40,6 +51,28 @@ export default function Header() {
     setMenuOpen(false);
   };
 
+  const renderNavLinks = (isMobile = false) => (
+    <>
+      {NAV_LINKS.map((section) => (
+        <Link
+          key={section}
+          href={`#${section}`}
+          className={`${
+            isMobile ? "block text-center" : "hover:text-black"
+          } text-text-default font-[600] relative ${
+            activeSection === section ? "text-color-primary" : ""
+          }`}
+          onClick={handleLinkClick}
+        >
+          {section.charAt(0).toUpperCase() + section.slice(1)}
+          {activeSection === section && (
+            <span className="absolute left-0 right-0 -bottom-1 h-[2px] bg-color-primary"></span>
+          )}
+        </Link>
+      ))}
+    </>
+  );
+
   return (
     <header className="bg-white fixed top-0 w-full z-50 font-sans">
       <div className="max-w-full mx-auto px-14 py-4 flex items-center justify-between">
@@ -51,58 +84,32 @@ export default function Header() {
               alt="BTE Logo"
               width={80}
               height={80}
-              className="mr-2  grayscale"
+              className="mr-2 grayscale"
             />
           </Link>
-          {/* <div className="text-color-primary font-bold text-xl">
-            <Link href="/">BTE</Link>
-          </div> */}
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-10 text-color-text ">
-          {["events", "about", "volunteer", "subscribe", "featured"].map(
-            (section) => (
-              <Link
-                key={section}
-                href={`#${section}`}
-                className={`hover:text-black text-text-default  font-[600] relative ${
-                  activeSection === section ? "text-color-primary" : ""
-                }`}
-                onClick={handleLinkClick}
-              >
-                {section.charAt(0).toUpperCase() + section.slice(1)}
-                {/* Active underline */}
-                {activeSection === section && (
-                  <span className="absolute left-0 right-0 -bottom-1 h-[2px] bg-color-primary"></span>
-                )}
-              </Link>
-            )
-          )}
+        <nav className="hidden md:flex space-x-10 text-color-text">
+          {renderNavLinks()}
         </nav>
 
         {/* Action Button */}
-        <div className="hidden md:block ">
+        <div className="hidden md:block">
           <Link
             href="#contact"
-            className="bg-white text-text-default py-2 px-4 rounded-b-[24px] rounded-tr-[24px] border-[#03045E] border-2 font-[600] hover:bg-[#03045E] transition-all duration-200 ease-out hover:p-4  hover:text-white"
+            className="bg-white text-text-default py-2 px-4 rounded-b-[24px] rounded-tr-[24px] border-[#03045E] border-2 font-[600] hover:bg-[#03045E] transition-all duration-200 ease-out hover:p-4 hover:text-white"
             onClick={handleLinkClick}
           >
             Contact Us
           </Link>
-          {/* <Link
-            href="#contact"
-            className=" text-text-default py-[0.65rem] px-4 rounded-b-[24px] rounded-tr-[24px] bg-[#F4F1DE] font-[600] hover:bg-opacity-90 transition-all ml-[20px]"
-            onClick={handleLinkClick}
-          >
-            Contact Us
-          </Link> */}
         </div>
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden text-text-default rounded-b-[24px] rounded-tr-[24px]  border-[#55A4CE] border-2 px-2 transition-all duration-300 ease-in-out"
+          className="md:hidden text-text-default rounded-b-[24px] rounded-tr-[24px] border-[#55A4CE] border-2 px-2 transition-all duration-300 ease-in-out"
           onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
         >
           {menuOpen ? (
             <XMarkIcon className="w-8 h-8" />
@@ -114,27 +121,14 @@ export default function Header() {
 
       {/* Mobile Navigation Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-color-bg  space-y-4 py-4 transition-all min-h-screen">
-          {["events", "about", "volunteer", "subscribe", "featured"].map(
-            (section) => (
-              <Link
-                key={section}
-                href={`/#${section}`}
-                className={`block text-center hover:text-black text-text-default  font-[600]  ${
-                  activeSection === section ? "text-color-primary" : ""
-                }`}
-                onClick={handleLinkClick}
-              >
-                {section.charAt(0).toUpperCase() + section.slice(1)}
-              </Link>
-            )
-          )}
+        <div className="md:hidden bg-color-bg space-y-4 py-4 transition-all min-h-screen">
+          {renderNavLinks(true)}
           <Link
             href="#visit"
-            className=" text-center rounded-b-[24px] rounded-tr-[24px] bg-[#03045E] text-white py-3 px-4  hover:bg-opacity-90 mx-6 mt-2 flex items-center justify-center gap-2  "
+            className="text-center rounded-b-[24px] rounded-tr-[24px] bg-[#03045E] text-white py-3 px-4 hover:bg-opacity-90 mx-6 mt-2 flex items-center justify-center gap-2"
             onClick={handleLinkClick}
           >
-            <p>Join the BTE family </p>
+            <p>Join the BTE family</p>
             <svg
               width="24"
               height="24"

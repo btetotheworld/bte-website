@@ -17,16 +17,23 @@ const Events = () => {
         </p>
         <div className="mt-4">
           {eventsData.map((event, index) => (
-            <div key={index} className={`article mb-10 w-full flex flex-col-reverse md:flex-row 
-                ${event.imageposition === 'right' ? 'lg:flex-row-reverse ' : 'lg:flex-row'}`}>
+            <div
+              key={index}
+              className={`article mb-10 w-full flex flex-col-reverse md:flex-row 
+                ${
+                  event.imageposition === "right"
+                    ? "lg:flex-row-reverse "
+                    : "lg:flex-row"
+                }`}
+            >
               <div className="  flex-1">
                 <Image
-                          alt="eventimage"
-                          src={event.image}
-                          // width={1}
-                          // height={800}
-                          className="w-full h-64 md:h-80 lg:h-[20rem] object-cover rounded-lg"
-                        />
+                  alt="eventimage"
+                  src={event.image}
+                  // width={1}
+                  // height={800}
+                  className="w-full h-64 md:h-80 lg:h-[20rem] object-cover rounded-lg"
+                />
               </div>
               <div className="article-text flex-1 justify-between flex flex-col p-4 gap-4">
                 <p className="text-[#121218] text-[1.5rem] font-extrabold mt-4">
@@ -37,11 +44,15 @@ const Events = () => {
                 </div>
                 <div className="flex gap-8">
                   <div>
-                    <p className="text-[#17171F] text-[0.6rem] font-bold">Date:</p>
+                    <p className="text-[#17171F] text-[0.6rem] font-bold">
+                      Date:
+                    </p>
                     <p className="text-[#4D4D56] text-[0.8rem]">{event.date}</p>
                   </div>
                   <div>
-                    <p className="text-[#17171F] text-[0.6rem] font-bold">Time:</p>
+                    <p className="text-[#17171F] text-[0.6rem] font-bold">
+                      Time:
+                    </p>
                     <p className="text-[#4D4D56] text-[0.8rem]">{event.time}</p>
                   </div>
                 </div>
