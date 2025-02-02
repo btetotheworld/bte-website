@@ -18,7 +18,7 @@ const Events = () => {
         <div className="mt-4">
           {eventsData.map((event, index) => (
             <div key={index} className={`article mb-10 w-full flex flex-col-reverse md:flex-row 
-                ${event.imageposition === 'right' ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
+                ${event.imageposition === 'right' ? 'lg:flex-row-reverse ' : 'lg:flex-row'}`}>
               <div className="  flex-1">
                 <Image
                           alt="eventimage"

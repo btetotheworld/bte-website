@@ -15,10 +15,12 @@ const Page: React.FC = () => {
     <div>
       <section id="home">
         <HeroSection />
+        <FeturedProgramme />
+        <Events/>
+        <Subscribe/>
       </section>
-      <FeturedProgramme />
-      <Events/>
-      <Subscribe/>
+     
+      
       {/* <section id="main">
         {" "}
         <MainSection />

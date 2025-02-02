@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { faker } from "@faker-js/faker";
+import Image from "next/image";
+import logo from "../assets/bte.png";
 
 export default function Footer() {
   const LoremShort = faker.lorem.paragraph(1);
@@ -7,38 +9,48 @@ export default function Footer() {
     <footer className="bg-color-bg mt-12 py-8 border-t border-color-border">
       <div className="max-w-7xl mx-auto px-6 text-color-text flex flex-col md:flex-row justify-between items-center">
         {/* Logo and Description */}
-        <div className="mb-4 md:mb-0 text-center md:text-left">
-          <h2 className="text-color-primary font-bold text-2xl">BTE</h2>
-          <p className="mt-2 text-sm">{LoremShort}</p>
+        <div className="flex flex-col gap-4 mb-4 md:mb-0 text-center md:text-left">
+        <Link href="/">
+            <Image
+              src={logo} // Path to your image in the public folder
+              alt="BTE Logo"
+              width={80} // Adjust the width as needed
+              height={80} // Adjust the height as needed
+              // apply image filter of grayscale to the image
+              className="mr-2  grayscale"
+            />
+          </Link>
+          <p className="mt-2 text-sm">Empowering Believers to Integrate Faith and Technology For Ethnical Innovation and Career Growth</p>
+          <div className="mb-4 md:mb-0">
+          <nav className="space-x-4 text-sm">
+            <Link href="/" className="hover:text-black text-text-default">
+              Home
+            </Link>
+            <Link href="/about" className="hover:text-black text-text-default">
+              About Us
+            </Link>
+            <Link href="/about" className="hover:text-black text-text-default">
+              about
+            </Link>
+            <Link href="/contact" className="hover:text-black text-text-default">
+              contact
+            </Link>
+            
+          </nav>
+        </div>
         </div>
 
         {/* Navigation Links */}
-        <div className="mb-4 md:mb-0">
-          <nav className="space-x-4 text-sm">
-            <Link href="/" className="hover:text-color-primary">
-              Home
-            </Link>
-            <Link href="/about" className="hover:text-color-primary">
-              About Us
-            </Link>
-            <Link href="/about" className="hover:text-color-primary">
-              about
-            </Link>
-            <Link href="/contact" className="hover:text-color-primary">
-              contact
-            </Link>
-            <Link href="/contact" className="hover:text-color-primary">
-              Contact
-            </Link>
-          </nav>
-        </div>
+        
 
         {/* Social Media Links */}
-        <div className="flex space-x-4 text-color-primary">
+       <div className="social-links flex flex-col  gap-4">
+       <div className="flex space-x-4 justify-end text-color-primary">
           <Link
             href="https://www.facebook.com"
             aria-label="Facebook"
             target="_blank"
+            className="text-text-default"
           >
             <svg
               className="w-5 h-5"
@@ -53,6 +65,7 @@ export default function Footer() {
             href="https://www.twitter.com"
             aria-label="Twitter"
             target="_blank"
+            className="text-text-default"
           >
             <svg
               className="w-5 h-5"
@@ -67,6 +80,7 @@ export default function Footer() {
             href="https://www.instagram.com"
             aria-label="Instagram"
             target="_blank"
+            className="text-text-default"
           >
             <svg
               className="w-5 h-5"
@@ -78,6 +92,12 @@ export default function Footer() {
             </svg>
           </Link>
         </div>
+        <ul className="lg:text-right ">
+          <li className="">hello@btexpo.com</li>
+          <li>Lagos, Nigeria</li>
+          <li>+234890812847</li>
+        </ul>
+       </div>
       </div>
 
       {/* Bottom Bar */}

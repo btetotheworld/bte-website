@@ -18,6 +18,7 @@
 
 body {
   background-color: var(--color-bg);
+  /* background-color: red; */
   color: var(--color-text);
   font-family: "Inter", sans-serif;
   margin: 0;
