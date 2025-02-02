@@ -8,6 +8,7 @@ import HeroSection from "@/components/HeroSection";
 import FeturedProgramme from "@/components/FeturedProgramme";
 import Events from "@/components/Events/Events";
 import Subscribe from "@/components/Subscribe";
+import Volunteer from "@/components/Volunteer";
 //import TellAFriend from "@/components/TellAFriend";
 
 const Page: React.FC = () => {
@@ -15,12 +16,20 @@ const Page: React.FC = () => {
     <div>
       <section id="home">
         <HeroSection />
-        <FeturedProgramme />
-        <Events/>
-        <Subscribe/>
       </section>
-     
-      
+      <section>
+        <FeturedProgramme />
+      </section>
+      <section id="events">
+        <Events />
+      </section>
+      <section>
+        <Subscribe />
+      </section>
+      <section>
+        <Volunteer />
+      </section>
+
       {/* <section id="main">
         {" "}
         <MainSection />

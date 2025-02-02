@@ -9,13 +9,12 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
 
-  // Use the IntersectionObserver API to detect which section is currently in view
   useEffect(() => {
     const sections = document.querySelectorAll("section");
     const options = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.3, // Adjust this value to determine when a section is considered in view
+      threshold: 0.3,
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -38,21 +37,20 @@ export default function Header() {
   }, []);
 
   const handleLinkClick = () => {
-    setMenuOpen(false); // Collapse the menu when a link is clicked
+    setMenuOpen(false);
   };
 
   return (
     <header className="bg-white fixed top-0 w-full z-50 font-sans">
-      <div className="max-w-full min-h-[112px] mx-auto px-14 py-4 flex items-center justify-between">
+      <div className="max-w-full mx-auto px-14 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/">
             <Image
-              src={logo} // Path to your image in the public folder
+              src={logo}
               alt="BTE Logo"
-              width={80} // Adjust the width as needed
-              height={80} // Adjust the height as needed
-              // apply image filter of grayscale to the image
+              width={80}
+              height={80}
               className="mr-2  grayscale"
             />
           </Link>
@@ -63,22 +61,24 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-10 text-color-text ">
-          {["events", "about", "volunteer"].map((section) => (
-            <Link
-              key={section}
-              href={`#${section}`}
-              className={`hover:text-black text-text-default  font-[600] relative ${
-                activeSection === section ? "text-color-primary" : ""
-              }`}
-              onClick={handleLinkClick}
-            >
-              {section.charAt(0).toUpperCase() + section.slice(1)}
-              {/* Active underline */}
-              {activeSection === section && (
-                <span className="absolute left-0 right-0 -bottom-1 h-[2px] bg-color-primary"></span>
-              )}
-            </Link>
-          ))}
+          {["events", "about", "volunteer", "subscribe", "featured"].map(
+            (section) => (
+              <Link
+                key={section}
+                href={`#${section}`}
+                className={`hover:text-black text-text-default  font-[600] relative ${
+                  activeSection === section ? "text-color-primary" : ""
+                }`}
+                onClick={handleLinkClick}
+              >
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+                {/* Active underline */}
+                {activeSection === section && (
+                  <span className="absolute left-0 right-0 -bottom-1 h-[2px] bg-color-primary"></span>
+                )}
+              </Link>
+            )
+          )}
         </nav>
 
         {/* Action Button */}
@@ -105,9 +105,9 @@ export default function Header() {
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? (
-            <XMarkIcon className="w-8 h-8" /> // Show close icon when menu is open
+            <XMarkIcon className="w-8 h-8" />
           ) : (
-            <Bars3Icon className="w-8 h-8" /> // Show hamburger icon when menu is closed
+            <Bars3Icon className="w-8 h-8" />
           )}
         </button>
       </div>
@@ -115,18 +115,20 @@ export default function Header() {
       {/* Mobile Navigation Menu */}
       {menuOpen && (
         <div className="md:hidden bg-color-bg  space-y-4 py-4 transition-all min-h-screen">
-          {["events", "about", "volunteer"].map((section) => (
-            <Link
-              key={section}
-              href={`/#${section}`}
-              className={`block text-center hover:text-black text-text-default  font-[600]  ${
-                activeSection === section ? "text-color-primary" : ""
-              }`}
-              onClick={handleLinkClick}
-            >
-              {section.charAt(0).toUpperCase() + section.slice(1)}
-            </Link>
-          ))}
+          {["events", "about", "volunteer", "subscribe", "featured"].map(
+            (section) => (
+              <Link
+                key={section}
+                href={`/#${section}`}
+                className={`block text-center hover:text-black text-text-default  font-[600]  ${
+                  activeSection === section ? "text-color-primary" : ""
+                }`}
+                onClick={handleLinkClick}
+              >
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+              </Link>
+            )
+          )}
           <Link
             href="#visit"
             className=" text-center rounded-b-[24px] rounded-tr-[24px] bg-[#03045E] text-white py-3 px-4  hover:bg-opacity-90 mx-6 mt-2 flex items-center justify-center gap-2  "
