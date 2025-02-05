@@ -9,7 +9,7 @@ const Volunteer: React.FC = () => {
         textAlign: "center",
       }}
     >
-      This is the TellAFriend Component
+      {/* This is the TellAFriend Component */}
     </section>
   );
 };
