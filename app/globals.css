@@ -123,9 +123,10 @@ a:hover {
 /* Inputs */
 input,
 textarea {
-  background-color: var(--color-bg);
+  background-color: none;
   color: var(--color-text);
-  border: 1px solid var(--color-muted);
+  /* border: 1px solid var(--color-muted); */
+
   border-radius: 0.5rem;
   padding: 0.75rem;
   font-size: 1rem;
@@ -135,8 +136,9 @@ textarea {
 input:focus,
 textarea:focus {
   outline: none;
-  border-color: var(--color-highlight);
-  box-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+  background-color: none;
+  /* border-color: var(--color-highlight); */
+  /* box-shadow: 0 0 8px rgba(0, 212, 255, 0.5); */
 }
 
 /* Additional Tweaks for Beauty */
