@@ -5,7 +5,7 @@ import arrow from '@/assets/arrow-right.svg'
 const Subscribe = () => {
     return (
         <div>
-            <div className="bg-[#35367e] min-h-screen flex justify-center">
+            <div className="bg-[#35367e] h-[70vh] flex justify-center">
                 <div className="w-[95%] md:w-[90%] py-[80px]">
                     <div className="flex flex-col items-center text-white">
                         <p className="px-[16px] py-[10px] rounded-full border-[#201E5A] border ">
@@ -16,7 +16,7 @@ const Subscribe = () => {
                             Your Faith & Tech Inbox
                         </p>
                         <div className='lg:w-[40rem] text-center'>
-                            <p>Don't miss out! Stay informed about upcoming events, news, and resources to grow your passion for Christ and technology.</p>
+                            <p>Don&apos;t miss out! Stay informed about upcoming events, news, and resources to grow your passion for Christ and technology.</p>
                         </div>
 
                         <div className="flex max-w-[20rem] w-[40rem] mx-auto lg:flex-row md:flex-row mt-4  justify-center lg:w-full">

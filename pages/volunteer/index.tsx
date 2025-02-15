@@ -56,7 +56,7 @@ const VolunteerPage: React.FC = () => {
               </p>
             </div>
             <h1 className=" font-extrabold font-sans text-[1.1rem] md:text-[3.5rem] leading-[1.1em] ">
-              These are the teams we have and here's how you can add value to us
+              These are the teams we have and here&apos;s how you can add value to us
             </h1>
             <div className="card-container grid lg:grid-cols-3 mt-10 grid-cols-1 ">
               {teams.map((team, index) => (
@@ -67,7 +67,7 @@ const VolunteerPage: React.FC = () => {
             <div className="flex-col lg:flex-row flex justify-between">
               <div className='text-text-default'>
                 <p>We will look after you. 🤞🏾♥️</p>
-                <p>Your efforts won't go unnoticed - we will mention your name to a room full of opportunities.</p>
+                <p>Your efforts won&apos;t go unnoticed - we will mention your name to a room full of opportunities.</p>
               </div>
               <div>
 

@@ -1,5 +1,4 @@
 import Header from "@/components/Header";
-import Article from "@/components/Article";
 import React, { useState } from "react";
 import "@/app/globals.css";
 import Subscribe from "@/components/Subscribe";
@@ -13,6 +12,7 @@ type IndexType = number
 const ArticleSection: React.FC = () => {
 
     const [currentIndex, setCurrentIndex]= useState<IndexType>(0)
+    console.log(setCurrentIndex)
     return (
       <div className="">
         <section id="w-full  section-article">

@@ -6,6 +6,7 @@ type IndexType = number
 const Article = () => {
 
     const [currentIndex, setCurrentIndex]= useState<IndexType>(0)
+    console.log(setCurrentIndex)
   return (
     <div className="bg-white min-h-screen mt-8 flex justify-center">
       <div className="w-[95%] md:w-[90%] py-[80px]">

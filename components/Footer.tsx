@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { faker } from "@faker-js/faker";
+// import { faker } from "@faker-js/faker";
 import Image from "next/image";
 import logo from "../assets/bte.png";
 
 export default function Footer() {
-  const LoremShort = faker.lorem.paragraph(1);
+  // const LoremShort = faker.lorem.paragraph(1);
   return (
     <footer className="bg-color-bg p-8 border-t border-color-border">
       <div className="max-w-7xl mx-auto px-6 text-color-text flex flex-col md:flex-row justify-between items-center">

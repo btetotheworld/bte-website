@@ -28,4 +28,32 @@ export const eventsData = [
       image:image1,
       imageposition: "left"
     },
+    {
+      title: "Web3 and Decentralization",
+      description: "An exclusive session on how Web3 is changing the internet. Learn about blockchain, NFTs, and more.",
+      date: "May 10th, 2025",
+      time: "4:00pm - 8:00pm",
+      link: "#",
+      image:image1,
+      imageposition: "right"
+    },
+    {
+      title: "Web3 and Decentralization",
+      description: "An exclusive session on how Web3 is changing the internet. Learn about blockchain, NFTs, and more.",
+      date: "May 10th, 2025",
+      time: "4:00pm - 8:00pm",
+      link: "#",
+      image:image1,
+      imageposition: "left"
+    },
+    {
+      title: "Web3 and Decentralization",
+      description: "An exclusive session on how Web3 is changing the internet. Learn about blockchain, NFTs, and more.",
+      date: "May 10th, 2025",
+      time: "4:00pm - 8:00pm",
+      link: "#",
+      image:image1,
+      imageposition: "left"
+    }
+    
   ];

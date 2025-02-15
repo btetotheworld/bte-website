@@ -1,8 +1,11 @@
-import React from "react";
+import React  from "react";
 import { eventsData } from "@/components/Events/eventList";
 import Image from "next/image";
-
+type IndexType = number
 const Events = () => {
+
+
+ 
   return (
     <div className="bg-white min-h-screen flex justify-center">
       <div className="w-[95%] md:w-[90%] py-[80px]">
@@ -16,7 +19,7 @@ const Events = () => {
           Upcoming Events
         </p>
         <div className="mt-4">
-          {eventsData.map((event, index) => (
+          {eventsData.slice(0, 4).map((event, index) => (
             <div key={index} className={`article mb-10 w-full flex flex-col-reverse md:flex-row 
                 ${event.imageposition === 'right' ? 'lg:flex-row-reverse ' : 'lg:flex-row'}`}>
               <div className="  flex-1">
