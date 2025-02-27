@@ -8,6 +8,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  console.log(activeSection)
 
   useEffect(() => {
     const sections = document.querySelectorAll("section");
@@ -60,21 +61,25 @@ export default function Header() {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-10 text-color-text ">
+        <nav className="hidden md:flex space-x-10 text-text-default">
           {["events", "about", "volunteer", "subscribe", "featured"].map(
             (section) => (
               <Link
                 key={section}
                 href={`#${section}`}
-                className={`hover:text-black text-text-default  font-[600] relative ${
-                  activeSection === section ? "text-color-primary" : ""
+                className={`hover:text-text-default   px-6 text-text-default  font-[600] relative ${
+                  activeSection === section ? "text-text-default" : ""
                 }`}
                 onClick={handleLinkClick}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
                 {/* Active underline */}
                 {activeSection === section && (
-                  <span className="absolute left-0 right-0 -bottom-1 h-[2px] bg-color-primary"></span>
+                  <div>
+                    <span className="absolute left-0 right-0 -bottom-1 h-[2px] bg-text-default"></span>
+                    <span className="absolute right-0 top-2  h-[0.6rem] w-[0.6rem] rounded-full  bg-text-default"></span>
+                  </div>
+
                 )}
               </Link>
             )

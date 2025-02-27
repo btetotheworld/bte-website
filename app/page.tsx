@@ -14,19 +14,20 @@ import Volunteer from "@/components/Volunteer";
 const Page: React.FC = () => {
   return (
     <div>
+      {/* events", "about", "volunteer", "subscribe", "featured */}
       <section id="home">
         <HeroSection />
       </section>
-      <section>
+      <section id="featured">
         <FeturedProgramme />
       </section>
       <section id="events">
         <Events />
       </section>
-      <section>
+      <section id="subscribe">
         <Subscribe />
       </section>
-      <section>
+      <section id="volunteer">
         <Volunteer />
       </section>
 
