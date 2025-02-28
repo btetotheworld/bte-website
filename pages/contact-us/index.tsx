@@ -8,6 +8,8 @@ import Subscribe from '@/components/Subscribe';
 import Footer from '@/components/Footer';
 import { CiMail } from "react-icons/ci";
 import { LuPhone } from "react-icons/lu";
+import bgImage from "../../assets/bg-image.svg"
+import Image from 'next/image';
 
 interface FormValues {
   fullName: string,
@@ -23,10 +25,10 @@ const validationSchema = Yup.object({
   email: Yup.string().email("Invalid email").required("Email is reqiured"),
   phoneNumber: Yup.string().matches(/^\+?[1-9]\d{1,14}$/, "Invalid phone number format")
     .required("Phone number is required"),
-  subject: Yup.string().
-    min(3, "subject must be 8 character").required("subject is required"),
-  message: Yup.string().
-    min(3, "message must be 8 character").required("message is required"),
+  subject: Yup.string().min(3, "subject must be 8 character"),
+
+  message:Yup.string().min(3, "message must be 8 character")
+
 })
 
 const index = () => {
@@ -47,7 +49,7 @@ const index = () => {
     <div>
       <section id="w-full  section-article">
         <Header />
-        <div className="bg-[#020343] text-white min-h-screen mt-8 flex justify-center">
+        <div className="bg-[#020343] relative text-white min-h-screen mt-8 flex justify-center">
           <div className="w-[95%] md:w-[90%] py-[80px] flex flex-col gap-4">
             <div className="flex flex-col gap-4 w-fit">
               <p className="px-[16px] py-[10px] rounded-full border-[#201E5A] border ">
@@ -62,7 +64,7 @@ const index = () => {
             </p>
 
             <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
-              <Form>
+              <Form className='relative z-10'>
                 <Grid container spacing={2} className="">
                   {/* Full Name */}
                   <Grid item xs={12} sm={6} lg={6} className="">
@@ -134,10 +136,10 @@ const index = () => {
                       <label>Phone Number</label>
                       <div className="rounded-b-[24px] rounded-tr-[24px] border-2 border-white">
                         <Field
-                          type="email"
-                          placeholder="johnDoe@gmail.com"
+                          type="text"
+                          placeholder="+234 7051859001"
                           className="bg-transparent border-none outline-none transition-all duration-300"
-                          name="email"
+                          name="PhoneNumber"
                         />
                       </div>
                       <ErrorMessage name="email" component="div" className="text-red-500 text-sm" />
@@ -176,10 +178,10 @@ const index = () => {
                     </svg>
                   </button>
                 </div>
-              </Form>
+              </Form> 
             </Formik>
 
-
+          <Image src={bgImage} alt="" className='absolute top-0 left-1/2 transform -translate-x-1/2  h-screen' />
           </div>
         </div>
         <Subscribe />

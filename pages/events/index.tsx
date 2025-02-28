@@ -6,6 +6,7 @@ import React from 'react'
 import '@/app/globals.css';
 import { eventsData } from '@/components/Events/eventList'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Index = () => {
     return (
@@ -56,14 +57,14 @@ const Index = () => {
                                         </p>
                                         <p className="text-sm mt-2">{event.description}</p>
 
-                                        <a
-                                href={event.link}
+                                        <Link
+                                href={"/"}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-center rounded-b-[24px] rounded-tr-[24px] text-black py-2 px-3 border-2 border-[#B1D5E8] hover:bg-white hover:text-[#03045E] hover:font-bold mt-2 flex items-center justify-center gap-2 transition-colors duration-200 ease-out group w-full md:w-fit"
                               >
                                 <span className="whitespace-nowrap">Attend the Event</span>
-                              </a>
+                              </Link>
                                     </div>
                                 </div>
                             ))}

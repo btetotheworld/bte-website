@@ -5,11 +5,18 @@ import Subscribe from "@/components/Subscribe";
 import Footer from "@/components/Footer";
 import { eventsData } from "@/components/Events/eventList";
 import Image from "next/image";
+import { useParams } from "next/dist/client/components/navigation";
 
 type IndexType = number
 
 
 const ArticleSection: React.FC = () => {
+
+       const params = useParams();
+       const eventId = params?.id;
+       console.log(params)
+   
+       const event = eventsData.find(event => event.id === eventId)
 
     const [currentIndex, setCurrentIndex]= useState<IndexType>(0)
     console.log(setCurrentIndex)
@@ -28,16 +35,16 @@ const ArticleSection: React.FC = () => {
             
                     
                     <p className=" font-extrabold font-sans text-[3.1rem] md:text-[5.5rem] leading-[1.1em] ">
-                    Blood Money but your blood
+                   {event?.title}
                     </p>
                     <div className="mt-4">
-                      {eventsData[currentIndex] && (
+                      {event && (
                         <div  className={`article mb-10 w-full flex flex-col `}>
                            
                           <div className="w-full  ">
                             <Image
                                   alt="eventimage"
-                                      src={eventsData[currentIndex].image}
+                                      src={event.image}
                                       // width={1}
                                       // height={800}
                                       className="w-full h-64 md:h-80 lg:h-[20rem] object-cover rounded-lg"
@@ -66,12 +73,7 @@ const ArticleSection: React.FC = () => {
             
                       <div className="col-span-4  lg:text-[1.5rem] text-[1rem]">
                        <p>
-                       Start the year strong with a purpose-driven vision for 2025! Join us
-                        for an inspiring and interactive event where you&apos;ll learn
-                        practical strategies to set meaningful goals, align them with your
-                        values, and create an actionable plan for success. Whether personal,
-                        professional, or spiritual, this session will empower you to step
-                        into 2025 with clarity, focus, and confidence.
+                       {event?.description}
                        </p>
             
                        

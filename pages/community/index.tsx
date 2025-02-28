@@ -9,6 +9,7 @@ import arrowRight from '@/assets/arrowRight.svg'
 import arrowLeft from '../../assets/arrowLeft.svg'
 import teamOne from '../../assets/team-1.png'
 import quote from '../../assets/quote.svg'
+import bgImage from '../../assets/bg-image.svg'
 
 
 
@@ -60,7 +61,7 @@ const Index: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="w-full flex flex-col gap-6 text-white md:w-[100%] p-[80px] bg-[#020343] ">
+                <div className="w-full flex flex-col gap-6 relative z-[100] text-white md:w-[100%] p-[80px] bg-[#020343] ">
                     <div className="flex">
                         <p className="px-[16px] py-[10px] rounded-full border-[#201E5A] border ">
                             One Faith, One Love, One Hope
@@ -91,6 +92,8 @@ const Index: React.FC = () => {
 
                         </div>
                     </div>
+                    <Image src={bgImage} alt="" className='absolute z-0 top-0 left-1/2 transform -translate-x-1/2  h-screen' />
+
                 </div>
                 <div className="  min-h-screen bg-[#010236] text-white  flex justify-center">
                     <div className="w-[95%] md:w-[90%] py-[80px] flex flex-col gap-6">
@@ -131,6 +134,8 @@ const Index: React.FC = () => {
 
 
                     </div>
+
+
                 </div>
 
                 <Subscribe />

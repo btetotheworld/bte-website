@@ -4,10 +4,12 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import logo from "../assets/bte.png";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useRouter } from "next/navigation";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("about");
+  const [activeSection, setActiveSection] = useState("home");
+  const router = useRouter();
 
   useEffect(() => {
     const sections = document.querySelectorAll("section");
@@ -27,7 +29,7 @@ export default function Header() {
       });
 
       if (!foundActive) {
-        setActiveSection("about");
+        setActiveSection("home");
       }
     }, observerOptions);
 
@@ -39,7 +41,23 @@ export default function Header() {
   const handleLinkClick = (id: string) => {
     setMenuOpen(false);
     setActiveSection(id);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+   
+
+    if (id === "volunteer") {
+      console.log("Pushing to /volunteer");
+      router.push("/volunteer")
+    } else if (id === "events") {
+      router.push("/events")
+    } else if (id === "home") {
+      router.push("/")
+    }
+     else {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+
+
+    }
+      
+    
   };
 
   return (
@@ -74,12 +92,13 @@ export default function Header() {
         </nav>
 
         {/* Contact Button */}
-        <button
-          onClick={() => handleLinkClick("contact")}
+        <Link
+          href={"/contact-us"}
+          // onClick={() => handleLinkClick("contact")}
           className="hidden md:block bg-white text-gray-900 py-2 px-4 rounded-b-[24px] rounded-tr-[24px] border-gray-900 border-2 font-semibold hover:bg-gray-900 hover:text-white transition-all duration-200 ease-out"
         >
           Contact Us
-        </button>
+        </Link>
 
         {/* Mobile Menu Toggle */}
         <button
@@ -94,22 +113,24 @@ export default function Header() {
       {menuOpen && (
         <div className="md:hidden bg-white space-y-4 py-4 min-h-screen shadow-lg">
           {["events", "about", "volunteer", "subscribe", "featured"].map((section) => (
-            <button
-              key={section}
+            <Link
+            key={section}
+            href={`#${section}`}
               onClick={() => handleLinkClick(section)}
               className={`block w-full text-center py-3 font-semibold ${
                 activeSection === section ? "text-gray-900" : "text-gray-600"
               }`}
             >
               {section.charAt(0).toUpperCase() + section.slice(1)}
-            </button>
+            </Link>
           ))}
-          <button
-            onClick={() => handleLinkClick("visit")}
+          <Link
+          href={"/contact-us"}
+            
             className="block w-full text-center rounded-b-[24px] rounded-tr-[24px] bg-gray-900 text-white py-3 px-4 hover:bg-opacity-90 mx-6 mt-2"
           >
             Join the BTE Family
-          </button>
+          </Link>
         </div>
       )}
     </header>
