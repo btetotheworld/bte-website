@@ -1,130 +1,108 @@
 "use client";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import logo from '../assets/bte.png'
+import logo from "../assets/bte.png";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useRouter, usePathname } from "next/navigation";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
+  const router = useRouter();
+  const pathname = usePathname();
 
-  // Use the IntersectionObserver API to detect which section is currently in view
-  useEffect(() => {
-    const sections = document.querySelectorAll("section");
-    const options = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.3, // Adjust this value to determine when a section is considered in view
-    };
+  // Route mapping for cleaner navigation logic
+  const routes: Record<string, string> = {
+    home: "/",
+    volunteer: "/volunteer",
+    events: "/events",
+    about: "/community",
+  };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    }, options);
-
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
-
-    return () => {
-      sections.forEach((section) => {
-        observer.unobserve(section);
-      });
-    };
-  }, []);
-
-  const handleLinkClick = () => {
-    setMenuOpen(false); // Collapse the menu when a link is clicked
+  // Handle navigation
+  const handleLinkClick = (id: keyof typeof routes) => {
+    setMenuOpen(false);
+    if (routes[id]) {
+      router.push(routes[id]);
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
-    <header className="bg-color-bg shadow-md fixed top-0 w-full z-50">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <header className="bg-white fixed top-0 w-full z-50 font-sans shadow-md">
+      <div className="max-w-full mx-auto px-6 md:px-14 py-4 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center">
-          <Link href="/">
-            <Image
-              src={logo} // Path to your image in the public folder
-              alt="BTE Logo"
-              width={60} // Adjust the width as needed
-              height={60} // Adjust the height as needed
-              className="mr-2"
-            />
-          </Link>
-          {/* <div className="text-color-primary font-bold text-xl">
-            <Link href="/">BTE</Link>
-          </div> */}
-        </div>
+        <Link href="/" className="flex items-center">
+          <Image src={logo} alt="BTE Logo" width={80} height={80} priority className="mr-2 grayscale" />
+        </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-6 text-color-text">
-          {["home", "main", "about", "contact", "refer"].map((section) => (
-            <Link
+        <nav className="hidden md:flex space-x-10">
+          {["events", "about", "volunteer"].map((section) => (
+            <div
               key={section}
-              href={`#${section}`}
-              className={`hover:text-color-primary relative ${
-                activeSection === section ? "text-color-primary" : ""
+              className={`hover:text-gray-800 cursor-pointer px-6 font-semibold relative ${
+                pathname === routes[section] ? "text-gray-900" : "text-gray-600"
               }`}
-              onClick={handleLinkClick}
+              onClick={() => handleLinkClick(section as keyof typeof routes)}
             >
               {section.charAt(0).toUpperCase() + section.slice(1)}
-              {/* Active underline */}
-              {activeSection === section && (
-                <span className="absolute left-0 right-0 -bottom-1 h-[2px] bg-color-primary"></span>
+              {pathname === routes[section] && (
+                <div>
+                  <span className="absolute left-0 right-0 -bottom-1 h-[2px] bg-gray-900"></span>
+                  <span className="absolute right-0 top-2 h-[0.6rem] w-[0.6rem] rounded-full bg-text-default"></span>
+                </div>
               )}
-            </Link>
+            </div>
           ))}
         </nav>
 
-        {/* Action Button */}
-        <div className="hidden md:block">
+        {/* Buttons */}
+        <div className="flex space-x-4">
           <Link
-            href="#contact"
-            className="bg-color-primary text-white py-2 px-4 rounded-lg hover:bg-opacity-90 transition-all"
-            onClick={handleLinkClick}
+            href="/contact-us"
+            className="hidden md:block bg-white text-gray-900 py-2 px-4 rounded-b-[24px] rounded-tr-[24px] border-gray-900 border-2 font-semibold hover:bg-gray-900 hover:text-white transition-all duration-200 ease-out"
           >
             Contact Us
+          </Link>
+          <Link
+            href="/"
+            className="hidden md:block bg-[#f7f2d4] text-gray-900 py-2 px-4 rounded-b-[24px] rounded-tr-[24px] font-semibold hover:bg-gray-900 hover:text-white transition-all duration-200 ease-out"
+          >
+            Become a Sponsor
           </Link>
         </div>
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden text-color-primary"
+          className="md:hidden text-gray-900 border-gray-900 border-2 px-2 rounded-b-[24px] rounded-tr-[24px] transition-all duration-300 ease-in-out"
           onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle navigation menu"
         >
-          {menuOpen ? (
-            <XMarkIcon className="w-6 h-6" /> // Show close icon when menu is open
-          ) : (
-            <Bars3Icon className="w-6 h-6" /> // Show hamburger icon when menu is closed
-          )}
+          {menuOpen ? <XMarkIcon className="w-8 h-8" /> : <Bars3Icon className="w-8 h-8" />}
         </button>
       </div>
 
       {/* Mobile Navigation Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-color-bg text-color-text space-y-4 py-4">
-          {["home", "main", "about", "contact", "refer"].map((section) => (
-            <Link
+        <div className="md:hidden bg-white space-y-4 py-4 min-h-screen shadow-lg">
+          {["events", "about", "volunteer"].map((section) => (
+            <div
               key={section}
-              href={`/#${section}`}
-              className={`block text-center hover:text-color-primary ${
-                activeSection === section ? "text-color-primary" : ""
+              onClick={() => handleLinkClick(section as keyof typeof routes)}
+              className={`block w-full text-center py-3 font-semibold ${
+                pathname === routes[section] ? "text-gray-900" : "text-gray-600"
               }`}
-              onClick={handleLinkClick}
             >
               {section.charAt(0).toUpperCase() + section.slice(1)}
-            </Link>
+            </div>
           ))}
           <Link
-            href="#visit"
-            className="block text-center bg-color-primary text-white py-2 px-4 rounded-lg hover:bg-opacity-90 mx-6 mt-2"
-            onClick={handleLinkClick}
+            href="/contact-us"
+            className="block w-full text-center rounded-b-[24px] rounded-tr-[24px] bg-gray-900 text-white py-3 px-4 hover:bg-opacity-90 mx-6 mt-2"
           >
-            Tell a Friend
+            Join the BTE Family
           </Link>
         </div>
       )}

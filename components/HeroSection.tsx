@@ -1,32 +1,72 @@
 import React from "react";
 import Link from "next/link";
-import { faker } from "@faker-js/faker";
+// import { faker } from "@faker-js/faker";
 
 export default function HeroSection() {
-  const LoremShort = faker.lorem.paragraph(2);
   return (
-    <section id="hero">
-      <div className="hero-section hero-section-blue bg-cover bg-center flex flex-col justify-center items-center h-[100vh] md:h-[80] relative">
-        <div className="absolute inset-0 hero-overlay"></div>{" "}
-        {/* Overlay for text contrast */}
-        <div className="z-10 px-4 max-w-4xl text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mt-8 mb-8">
-            Welcome to Beliver&apos;s Tech Expo
-          </h1>
-          <p className="text-lg md:text-xl p-4 mb-6">{LoremShort}</p>
-          <Link
-            href="#about"
-            className="inline-block bg-color-primary text-white py-3 px-8 rounded-lg text-lg hover:bg-opacity-90 transition"
-          >
-            Explore More
-          </Link>
+    <section
+      id="hero"
+      className="bg-white flex items-center justify-center py-8 min-h-screen"
+    >
+      <div className="w-[95%] md:w-[90%] flex flex-col gap-4 md:gap-2">
+        <div className="flex ">
+          <p className="px-[16px] py-[10px] rounded-full border-[#201E5A] border">
+            Love 🩵 & Light💡
+          </p>
         </div>
-        <div className="absolute bottom-10 flex justify-center w-full">
+        <p className="text-[#121218] font-extrabold font-sans text-[3.1rem] md:text-[5.5rem] leading-[1.1em] ">
+          Where believers meet to connect over Tech
+        </p>
+        <p className="text-[#4D4D56] font-[400] text-[0.9rem] lg:text-[24px] max-w-[932px] text-justify md:text-left">
+          Whether you&apos;re a developer, designer, engineer, finding your way,
+          or just love technology, connect with like-minded believers, share
+          ideas, grow your skills, and inspire one another to use tech for a
+          greater purpose.
+        </p>
+
+        <div className="flex items-end justify-end  w-full md:justify-start">
           <Link
-            href="#about"
-            className="text-color-primary text-xl animate-bounce"
+            href="#visit"
+            className="text-center rounded-b-[24px] rounded-tr-[24px] bg-[#03045E] text-white py-3 px-4 border-2 border-[#03045E] hover:bg-white hover:text-[#03045E] hover:font-bold mt-2 flex items-center justify-center gap-2 transition-colors duration-200 ease-out group w-full md:w-fit "
           >
-            ↓ Scroll Down
+            <span className="whitespace-nowrap">Join the BTE family</span>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="transition-colors duration-200 ease-out"
+            >
+              <path
+                d="M4 16.5C5.10457 16.5 6 15.6046 6 14.5C6 13.3954 5.10457 12.5 4 12.5C2.89543 12.5 2 13.3954 2 14.5C2 15.6046 2.89543 16.5 4 16.5Z"
+                className="fill-white transition-colors duration-200 ease-out group-hover:fill-[#03045E]"
+              />
+              <path
+                d="M1.22 18.08C0.48 18.4 0 19.12 0 19.93V21.5H4.5V19.89C4.5 19.06 4.73 18.28 5.13 17.6C4.76 17.54 4.39 17.5 4 17.5C3.01 17.5 2.07 17.71 1.22 18.08Z"
+                className="fill-white transition-colors duration-200 ease-out group-hover:fill-[#03045E]"
+              />
+              <path
+                d="M20 16.5C21.1046 16.5 22 15.6046 22 14.5C22 13.3954 21.1046 12.5 20 12.5C18.8954 12.5 18 13.3954 18 14.5C18 15.6046 18.8954 16.5 20 16.5Z"
+                className="fill-white transition-colors duration-200 ease-out group-hover:fill-[#03045E]"
+              />
+              <path
+                d="M22.78 18.08C21.93 17.71 20.99 17.5 20 17.5C19.61 17.5 19.24 17.54 18.87 17.6C19.27 18.28 19.5 19.06 19.5 19.89V21.5H24V19.93C24 19.12 23.52 18.4 22.78 18.08Z"
+                className="fill-white transition-colors duration-200 ease-out group-hover:fill-[#03045E]"
+              />
+              <path
+                d="M16.24 17.15C15.07 16.63 13.63 16.25 12 16.25C10.37 16.25 8.93 16.64 7.76 17.15C6.68 17.63 6 18.71 6 19.89V21.5H18V19.89C18 18.71 17.32 17.63 16.24 17.15ZM8.07 19.5C8.16 19.27 8.34 19.08 8.56 18.98C9.66 18.49 10.82 18.25 11.99 18.25C13.17 18.25 14.32 18.5 15.42 18.98C15.65 19.08 15.82 19.27 15.91 19.5H8.07Z"
+                className="fill-white transition-colors duration-200 ease-out group-hover:fill-[#03045E]"
+              />
+              <path
+                d="M9 12.5C9 14.16 10.34 15.5 12 15.5C13.66 15.5 15 14.16 15 12.5C15 10.84 13.66 9.5 12 9.5C10.34 9.5 9 10.84 9 12.5ZM13 12.5C13 13.05 12.55 13.5 12 13.5C11.45 13.5 11 13.05 11 12.5C11 11.95 11.45 11.5 12 11.5C12.55 11.5 13 11.95 13 12.5Z"
+                className="fill-white transition-colors duration-200 ease-out group-hover:fill-[#03045E]"
+              />
+              <path
+                d="M2.48 11.36C2.17 10.6 2 9.86 2 9.1C2 6.52 4.02 4.5 6.6 4.5C9.28 4.5 10.42 6.24 12 8.09C13.57 6.26 14.7 4.5 17.4 4.5C19.98 4.5 22 6.52 22 9.1C22 9.86 21.83 10.6 21.52 11.36C22.17 11.67 22.7 12.18 23.05 12.8C23.65 11.6 24 10.38 24 9.1C24 5.4 21.1 2.5 17.4 2.5C15.31 2.5 13.31 3.47 12 5.01C10.69 3.47 8.69 2.5 6.6 2.5C2.9 2.5 0 5.4 0 9.1C0 10.38 0.35 11.6 0.96 12.8C1.31 12.18 1.84 11.67 2.48 11.36Z"
+                className="fill-white transition-colors duration-200 ease-out group-hover:fill-[#03045E]"
+              />
+            </svg>
           </Link>
         </div>
       </div>
